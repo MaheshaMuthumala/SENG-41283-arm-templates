@@ -1,0 +1,195 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "sites_EmployeeList_name": {
+            "defaultValue": "EmployeeList",
+            "type": "String"
+        },
+        "serverfarms_ASP_mySampleResourceGroup_b82d_externalid": {
+            "defaultValue": "/subscriptions/73c0a49a-0afd-4a6f-b86e-7d531be9cadc/resourceGroups/mySampleResourceGroup/providers/Microsoft.Web/serverfarms/ASP-mySampleResourceGroup-b82d",
+            "type": "String"
+        }
+    },
+    "variables": {},
+    "resources": [
+        {
+            "type": "Microsoft.Web/sites",
+            "apiVersion": "2018-11-01",
+            "name": "[parameters('sites_EmployeeList_name')]",
+            "location": "East Asia",
+            "kind": "app",
+            "properties": {
+                "enabled": true,
+                "hostNameSslStates": [
+                    {
+                        "name": "employeelist.azurewebsites.net",
+                        "sslState": "Disabled",
+                        "hostType": "Standard"
+                    },
+                    {
+                        "name": "employeelist.scm.azurewebsites.net",
+                        "sslState": "Disabled",
+                        "hostType": "Repository"
+                    }
+                ],
+                "serverFarmId": "[parameters('serverfarms_ASP_mySampleResourceGroup_b82d_externalid')]",
+                "reserved": false,
+                "isXenon": false,
+                "hyperV": false,
+                "siteConfig": {},
+                "scmSiteAlsoStopped": false,
+                "clientAffinityEnabled": true,
+                "clientCertEnabled": false,
+                "hostNamesDisabled": false,
+                "containerSize": 0,
+                "dailyMemoryTimeQuota": 0,
+                "httpsOnly": false,
+                "redundancyMode": "None"
+            }
+        },
+        {
+            "type": "Microsoft.Web/sites/config",
+            "apiVersion": "2018-11-01",
+            "name": "[concat(parameters('sites_EmployeeList_name'), '/web')]",
+            "location": "East Asia",
+            "dependsOn": [
+                "[resourceId('Microsoft.Web/sites', parameters('sites_EmployeeList_name'))]"
+            ],
+            "properties": {
+                "numberOfWorkers": 1,
+                "defaultDocuments": [
+                    "Default.htm",
+                    "Default.html",
+                    "Default.asp",
+                    "index.htm",
+                    "index.html",
+                    "iisstart.htm",
+                    "default.aspx",
+                    "index.php",
+                    "hostingstart.html"
+                ],
+                "netFrameworkVersion": "v4.0",
+                "requestTracingEnabled": false,
+                "remoteDebuggingEnabled": false,
+                "remoteDebuggingVersion": "VS2019",
+                "httpLoggingEnabled": false,
+                "logsDirectorySizeLimit": 35,
+                "detailedErrorLoggingEnabled": false,
+                "publishingUsername": "$EmployeeList",
+                "azureStorageAccounts": {},
+                "scmType": "None",
+                "use32BitWorkerProcess": true,
+                "webSocketsEnabled": false,
+                "alwaysOn": false,
+                "managedPipelineMode": "Integrated",
+                "virtualApplications": [
+                    {
+                        "virtualPath": "/",
+                        "physicalPath": "site\\wwwroot\\angular8-springboot-client",
+                        "preloadEnabled": false
+                    }
+                ],
+                "loadBalancing": "LeastRequests",
+                "experiments": {
+                    "rampUpRules": []
+                },
+                "autoHealEnabled": false,
+                "localMySqlEnabled": false,
+                "ipSecurityRestrictions": [
+                    {
+                        "ipAddress": "Any",
+                        "action": "Allow",
+                        "priority": 1,
+                        "name": "Allow all",
+                        "description": "Allow all access"
+                    }
+                ],
+                "scmIpSecurityRestrictions": [
+                    {
+                        "ipAddress": "Any",
+                        "action": "Allow",
+                        "priority": 1,
+                        "name": "Allow all",
+                        "description": "Allow all access"
+                    }
+                ],
+                "scmIpSecurityRestrictionsUseMain": false,
+                "http20Enabled": false,
+                "minTlsVersion": "1.2",
+                "ftpsState": "AllAllowed",
+                "reservedInstanceCount": 0
+            }
+        },
+        {
+            "type": "Microsoft.Web/sites/deployments",
+            "apiVersion": "2018-11-01",
+            "name": "[concat(parameters('sites_EmployeeList_name'), '/0d0521254fb44e8090468e031dc41235')]",
+            "location": "East Asia",
+            "dependsOn": [
+                "[resourceId('Microsoft.Web/sites', parameters('sites_EmployeeList_name'))]"
+            ],
+            "properties": {
+                "status": 4,
+                "author_email": "N/A",
+                "author": "VS Code",
+                "deployer": "ZipDeploy",
+                "message": "Created via a push deployment",
+                "start_time": "2020-08-15T12:28:16.5947437Z",
+                "end_time": "2020-08-15T12:28:19.6107053Z",
+                "active": false
+            }
+        },
+        {
+            "type": "Microsoft.Web/sites/deployments",
+            "apiVersion": "2018-11-01",
+            "name": "[concat(parameters('sites_EmployeeList_name'), '/50ee4cde81244203aec7568ead0f3f3f')]",
+            "location": "East Asia",
+            "dependsOn": [
+                "[resourceId('Microsoft.Web/sites', parameters('sites_EmployeeList_name'))]"
+            ],
+            "properties": {
+                "status": 4,
+                "author_email": "N/A",
+                "author": "VS Code",
+                "deployer": "ZipDeploy",
+                "message": "Created via a push deployment",
+                "start_time": "2020-08-14T16:56:47.7316373Z",
+                "end_time": "2020-08-14T16:56:51.8413812Z",
+                "active": false
+            }
+        },
+        {
+            "type": "Microsoft.Web/sites/deployments",
+            "apiVersion": "2018-11-01",
+            "name": "[concat(parameters('sites_EmployeeList_name'), '/6f3e0909c9894fa3941f5f8b576d319c')]",
+            "location": "East Asia",
+            "dependsOn": [
+                "[resourceId('Microsoft.Web/sites', parameters('sites_EmployeeList_name'))]"
+            ],
+            "properties": {
+                "status": 4,
+                "author_email": "N/A",
+                "author": "VS Code",
+                "deployer": "ZipDeploy",
+                "message": "Created via a push deployment",
+                "start_time": "2020-08-15T19:28:33.8105726Z",
+                "end_time": "2020-08-15T19:28:36.5643253Z",
+                "active": true
+            }
+        },
+        {
+            "type": "Microsoft.Web/sites/hostNameBindings",
+            "apiVersion": "2018-11-01",
+            "name": "[concat(parameters('sites_EmployeeList_name'), '/', parameters('sites_EmployeeList_name'), '.azurewebsites.net')]",
+            "location": "East Asia",
+            "dependsOn": [
+                "[resourceId('Microsoft.Web/sites', parameters('sites_EmployeeList_name'))]"
+            ],
+            "properties": {
+                "siteName": "EmployeeList",
+                "hostNameType": "Verified"
+            }
+        }
+    ]
+}
