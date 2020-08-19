@@ -128,7 +128,7 @@
         {
             "type": "Microsoft.Web/sites/deployments",
             "apiVersion": "2018-11-01",
-            "name": "[concat(parameters('sites_employeeListBackend_name'), '/00e6ded4c2978680b19ddf432f65700a0d9665ba')]",
+            "name": "[concat(parameters('sites_employeeListBackend_name'), '/6e327c536720802b07a0cba8ce4baeee0076d7cc')]",
             "location": "Southeast Asia",
             "dependsOn": [
                 "[resourceId('Microsoft.Web/sites', parameters('sites_employeeListBackend_name'))]"
@@ -137,16 +137,17 @@
                 "status": 4,
                 "author_email": "31380743+MaheshaMuthumala@users.noreply.github.com",
                 "author": "MaheshaMuthumala",
-                "message": "test\n",
-                "start_time": "2020-08-15T18:13:01.6703877Z",
-                "end_time": "2020-08-15T18:13:03.7328709Z",
+                "deployer": "GitHub",
+                "message": "update\n",
+                "start_time": "2020-08-19T20:30:57.6884794Z",
+                "end_time": "2020-08-19T20:31:00.0947508Z",
                 "active": true
             }
         },
         {
             "type": "Microsoft.Web/sites/deployments",
             "apiVersion": "2018-11-01",
-            "name": "[concat(parameters('sites_employeeListBackend_name'), '/f9ac57d35ec67557ce596d499f8ba977b24fe792')]",
+            "name": "[concat(parameters('sites_employeeListBackend_name'), '/97b5013af6202dfdba016afb059dea5b1d38cffa')]",
             "location": "Southeast Asia",
             "dependsOn": [
                 "[resourceId('Microsoft.Web/sites', parameters('sites_employeeListBackend_name'))]"
@@ -154,10 +155,11 @@
             "properties": {
                 "status": 4,
                 "author_email": "31380743+MaheshaMuthumala@users.noreply.github.com",
-                "author": "Mahesha Muthumala",
-                "message": "Update web.config",
-                "start_time": "2020-08-15T18:12:45.5139165Z",
-                "end_time": "2020-08-15T18:12:47.5764514Z",
+                "author": "MaheshaMuthumala",
+                "deployer": "GitHub",
+                "message": "initial commit\n",
+                "start_time": "2020-08-17T08:55:03.7653356Z",
+                "end_time": "2020-08-17T08:55:06.7810918Z",
                 "active": false
             }
         },
